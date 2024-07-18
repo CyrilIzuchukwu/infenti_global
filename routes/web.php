@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\ContactInformationController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -77,8 +79,25 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 
 
+    // testimonials
+    Route::get('admin/add_testmonial', [TestimonialController::class, 'add_testimonial'])->name('add_testimonial');
 
-    
+    Route::post('create_testimonial', [TestimonialController::class, 'create_testimonial'])->name('create_testimonial');
+
+    Route::get('admin/testimonials', [TestimonialController::class, 'testimonials'])->name('testimonials');
+
+    Route::get('admin/delete_testimonial/{id}', [TestimonialController::class, 'delete_testimonial'])->name('delete_testimonial');
+
+    Route::get('admin/edit_testimonial/{id}', [TestimonialController::class, 'edit_testimonial'])->name('edit_testimonial');
+
+    Route::post('admin/update_testimonial/{id}', [TestimonialController::class, 'update_testimonial'])->name('update_testimonial');
+
+
+
+    // contact information
+    Route::get('contact_information', [ContactInformationController::class, 'contact_information'])->name('contact_information');
+
+    Route::post('store_contact_information', [ContactInformationController::class, 'store_contact_information'])->name('store_contact_information');
 
 });
 
