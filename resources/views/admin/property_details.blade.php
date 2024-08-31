@@ -73,7 +73,7 @@
                                 </div>
                                 <h4>Description</h4>
                                 <p style="font-size: 16px;">
-                                    {{ $property->description }}
+                                    {!! $property->description !!}
                                 </p>
 
                             </div>

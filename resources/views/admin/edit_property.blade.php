@@ -7,7 +7,7 @@
     <div class="page-titles">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="">Property / </a></li>
-            <li class="breadcrumb-item active"><a href=""> Add Property</a></li>
+            <li class="breadcrumb-item active"><a href=""> Edit Property</a></li>
         </ol>
     </div>
     <!-- row -->
@@ -15,7 +15,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add Property</h4>
+                    <h4 class="card-title">Edit Property</h4>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('update_property', $data->id) }}" enctype="multipart/form-data">
@@ -60,37 +60,36 @@
 
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="mb-4 col-lg-3 col-md-6">
+                                    <div class="mb-4 col-lg-3 col-md-3">
                                         <label class="form-label">Area (Square Feet)</label>
                                         <input type="text" name="sqfeets" class="form-control" placeholder="85 sq ft" value="{{ old('sqfeets', json_decode($data->details)->sqfeets) }}">
                                         <span class="text-danger">@error('sqfeets') {{ $message }} @enderror</span>
                                     </div>
 
-                                    <div class=" col-lg-3 col-md-6" id="details">
+                                    @if($data->property_type == "house")
+                                    <div class=" col-lg-9 col-md-9" id="details">
                                         <div class="row">
-                                            <div class="mb-4 col-md-4 col-md-6">
+                                            <div class="mb-4  col-md-4">
                                                 <label class="form-label">Beds</label>
                                                 <input type="number" name="beds" class="form-control" placeholder="6" min="1" value="{{ old('beds', json_decode($data->details)->beds) }}">
                                                 <span class="text-danger">@error('beds') {{ $message }} @enderror</span>
                                             </div>
-                                            <div class="mb-4 col-lg-4 col-md-6">
+                                            <div class="mb-4 col-md-4">
                                                 <label class="form-label">Baths</label>
                                                 <input type="number" name="baths" class="form-control" placeholder="3" min="1" value="{{ old('baths', json_decode($data->details)->baths) }}">
                                                 <span class="text-danger">@error('baths') {{ $message }} @enderror</span>
                                             </div>
-                                            <div class="mb-4 col-lg-4 col-md-6">
+                                            <div class="mb-4  col-md-4">
                                                 <label class="form-label">Year Built</label>
                                                 <input type="number" name="year_built" class="form-control" placeholder="2020" value="{{ old('year_built', json_decode($data->details)->year_built) }}">
                                                 <span class="text-danger">@error('year_built') {{ $message }} @enderror</span>
                                             </div>
                                         </div>
                                     </div>
-
-
-
+                                    @else
+                                    @endif
                                 </div>
                             </div>
-
 
                             <div class="col-md-3 mb-4">
                                 <label class="form-label">Upload Property Image</label>
@@ -131,6 +130,7 @@
                                 <span class="text-danger">@error('state') {{ $message }} @enderror</span>
                             </div>
 
+                            @if($data->property_type == "house")
                             <div class="mb-4 col-12 additional_feature_section" id="additionalFeatureSection">
                                 <label class="form-label d-block">Additional features</label>
                                 @php
@@ -165,6 +165,8 @@
                                     <label class="form-check-label" for="flexRadioDefault13">Balcony</label>
                                 </div>
                             </div>
+                            @else
+                            @endif
 
 
 
@@ -312,28 +314,27 @@
         }
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var propertyTypeSelect = document.getElementById('propertyTypeSelect');
-        var additionalFeatureSection = document.getElementById('additionalFeatureSection');
-        var detailsSection = document.getElementById('details');
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     var propertyTypeSelect = document.getElementById('propertyTypeSelect');
+    //     var additionalFeatureSection = document.getElementById('additionalFeatureSection');
+    //     var detailsSection = document.getElementById('details');
 
-        // Function to toggle additional features and details section
-        function toggleSections() {
-            if (propertyTypeSelect.value === 'house') {
-                additionalFeatureSection.style.display = 'block';
-                detailsSection.style.display = 'block';
-            } else {
-                additionalFeatureSection.style.display = 'none';
-                detailsSection.style.display = 'none';
-            }
-        }
 
-        // Initial check
-        toggleSections();
+    //     function toggleSections() {
+    //         if (propertyTypeSelect.value === 'house') {
+    //             additionalFeatureSection.style.display = 'block';
+    //             detailsSection.style.display = 'block';
+    //         } else {
+    //             additionalFeatureSection.style.display = 'none';
+    //             detailsSection.style.display = 'none';
+    //         }
+    //     }
 
-        // Add event listener for change
-        propertyTypeSelect.addEventListener('change', toggleSections);
-    });
+
+    //     toggleSections();
+
+    //     propertyTypeSelect.addEventListener('change', toggleSections);
+    // });
 </script>
 
 @endsection

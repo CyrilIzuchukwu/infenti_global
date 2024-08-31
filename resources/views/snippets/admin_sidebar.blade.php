@@ -23,27 +23,25 @@
                 <ul aria-expanded="false">
                     <li><a href="{{ route('add_property') }}">Add Property</a></li>
                     <li><a href="{{ route('property_list') }}">All Property List</a></li>
-                    <li><a href="property-list.html">House Property</a></li>
-                    <li><a href="property-list.html">Land Property</a></li>
                 </ul>
             </li>
 
-            <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                    <i class="fa fa-boxes-stacked"></i>
-                    <span class="nav-text">Property on sell</span>
-                </a>
-            </li>
-
-            <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
-                    <i class="fa fa-stack-exchange"></i>
-                    <span class="nav-text">Property on rent</span>
-                </a>
-            </li>
-
-            <li><a href="widget-basic.html" class="ai-icon" aria-expanded="false">
+            <li><a href="{{ route('inquiry') }}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-notification"></i>
                     <span class="nav-text">Notification</span>
                 </a>
+            </li>
+
+            <li class="">
+                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-landing-page"></i>
+                    <span class="nav-text">Testimonials</span>
+                </a>
+
+                <ul aria-expanded="false" class="mm-collapse" >
+                    <li><a href="{{ route('add_testimonial') }}">Add Testimonials</a></li>
+                    <li><a href="{{ route('testimonials') }}">Testimonials</a></li>
+                </ul>
             </li>
 
 

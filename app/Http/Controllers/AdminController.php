@@ -19,7 +19,16 @@ class AdminController extends Controller
 
     public function admin_dashboard()
     {
-        return view('admin.index');
+        $fiveRecentProperties = Property::with('user')
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+
+        foreach ($fiveRecentProperties as $property) {
+            $property->location = json_decode($property->location);
+            $property->details = json_decode($property->details);
+        }
+        return view('admin.index', ['properties' => $fiveRecentProperties]);
     }
 
 
@@ -29,12 +38,11 @@ class AdminController extends Controller
     }
 
     public function create_agent(Request $request)
-
     {
         $request->validate([
-            'name' => 'required', 'string', 'max:255',
-            'email' => 'required|email|unique:users,email|max:225,string',
-            'password' => 'required', 'string', 'min:8', 'confirmed',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'unique:users,email', 'max:225'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         $bnbsend = new User();
@@ -42,7 +50,7 @@ class AdminController extends Controller
         $bnbsend->email = $request->email;
         $bnbsend->role_as = 2;
         $bnbsend->active = 1;
-        $bnbsend->password =  Hash::make($request->password);
+        $bnbsend->password = Hash::make($request->password);
         $bnbsend->save();
 
 
@@ -51,15 +59,22 @@ class AdminController extends Controller
             'name' => $bnbsend->name,
             'email' => $bnbsend->email,
             'role_as' => 'Agent',
-            'active' => 1,
             'password' => $request->password,
         ];
 
-        // $email = $mailData[]
+        // dd($mailData['email']);
+
+        try {
+            // dd($mailData['email']);
+            Mail::to($mailData['email'])->send(new DemoMail($mailData));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to queue email: ' . $e->getMessage());
+        }
 
 
-        Mail::to($mailData['email'])->send(new DemoMail($mailData));
-        Mail::to('alexcyril@gmail.com')->send(new DemoMail($mailData));
+
+        // Mail::to($mailData['email'])->send(new DemoMail($mailData));
+        // Mail::to('alexcyril@gmail.com')->send(new DemoMail($mailData));
 
         return redirect()->back()->with('message', 'DONE');
     }
@@ -95,10 +110,64 @@ class AdminController extends Controller
         return redirect()->back()->with('message', 'This Agent has been unbanned');
     }
 
-    public function profile()
+
+    // profile
+    public function profile_setting()
     {
         return view('admin.profile.index');
     }
+
+
+    public function profile_update(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
+        ]);
+
+        // Update the authenticated user's profile
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Profile updated successfully.');
+    }
+
+
+
+    public function password_update(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'old_password' => 'required|string',
+            'new_password' => 'required|string|min:8',
+            'new_password_confirmation' => 'required|string|min:8|same:new_password',
+        ]);
+
+        $user = Auth::user();
+
+        // Check if the old password matches
+        if (!Hash::check($request->old_password, $user->password)) {
+            return redirect()->back()->with('error', 'The old password is incorrect.');
+        }
+
+        // Check if new password matches confirm password
+        if ($request->new_password !== $request->new_password_confirmation) {
+            return redirect()->back()->with('error', 'The confirm password does not match.');
+        }
+
+        // Update the user's password
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        // Redirect back with a success message
+        return redirect()->route('profile_setting')->with('success', 'Password updated successfully.');
+    }
+
+
 
     public function add_property()
     {

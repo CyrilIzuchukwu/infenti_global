@@ -17,8 +17,8 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Phone</th>
-                                    <th class=" ps-5" style="min-width: 200px;"> Address</th>
+                                    <!-- <th>Phone</th>
+                                    <th class=" ps-5" style="min-width: 200px;"> Address</th> -->
                                     <th>Date Created</th>
                                     <th>Status</th>
                                     <th class="text-end pe-3">Action</th>
@@ -27,12 +27,11 @@
                             <tbody id="customers">
                                 @foreach($agents as $agent)
                                 <tr class="btn-reveal-trigger">
-                                    <td class="py-3">
+                                    <td class="py-3" style="color: #fff !important">
                                         <a href="javascript:void(0);">
                                             <div class="media d-flex align-items-center">
-                                                <div class="avatar avatar-xl me-2">
-                                                    <div class=""><img class="rounded-circle img-fluid" src="{{ asset('admin_assets/images/avatar/5.png') }}" width="30" alt="/">
-                                                    </div>
+                                                <div class="avatar avatar-xl me-2" style="display: flex; justify-content: center; align-items: center; width: 30px; height: 30px; border-radius:50%; background: #000; color: #fff; font-weight: 700;">
+                                                    {{ strtoupper(substr($agent->name, 0, 1)) }}
                                                 </div>
                                                 <div class="media-body">
                                                     <h5 class="mb-0 fs--1">{{ ucfirst($agent->name) }}</h5>
@@ -41,8 +40,8 @@
                                         </a>
                                     </td>
                                     <td class="py-2">{{ $agent->email }}</td>
-                                    <td class="py-2"> </td>
-                                    <td class="py-2 ps-5">2392 Main Avenue, Penasauka</td>
+                                    <!-- <td class="py-2"> </td>
+                                    <td class="py-2 ps-5">2392 Main Avenue, Penasauka</td> -->
                                     <td class="py-2"> {{$agent->created_at->format('M d, Y')}}</td>
                                     <td>
                                         @if($agent->active == 0)

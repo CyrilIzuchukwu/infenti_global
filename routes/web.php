@@ -2,10 +2,15 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\ContactInformationController;
+use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\TestimonialController;
+use App\Models\State;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,12 +26,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $states = State::all();
+    return view('welcome', ['states' => $states]);
 });
+
+
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/properties', function () {
+    return view('properties');
+})->name('properties');
+
+
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/services', function () {
+    return view('services');
+});
+
+Route::get('/properties/search', [PropertyController::class, 'search'])->name('property.search');
+
+
+Route::post('make_contact', [ContactFormController::class, 'make_contact'])->name('make_contact');
+
+
+Route::get('propert_details/{id}', [FrontendController::class, 'property_details'])->name('property_details');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('logout', [HomeController::class, 'logout'])->name('logout');
 
@@ -93,16 +125,61 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('admin/update_testimonial/{id}', [TestimonialController::class, 'update_testimonial'])->name('update_testimonial');
 
 
+    // inquiry route
+    Route::get('admin/enquiry', [EnquiryController::class, 'enquiry'])->name('inquiry');
+
+    Route::get('admin/delete_message/{id}', [EnquiryController::class, 'delete_message'])->name('delete_message');
+
+
+
+
 
     // contact information
     Route::get('contact_information', [ContactInformationController::class, 'contact_information'])->name('contact_information');
 
     Route::post('store_contact_information', [ContactInformationController::class, 'store_contact_information'])->name('store_contact_information');
 
+
+
+
+    // profile and password
+    Route::get('admin/profile_setting', [AdminController::class, 'profile_setting'])->name('profile_setting');
+
+
+    Route::post('admin/profile_update', [AdminController::class, 'profile_update'])->name('profile_update');
+
+
+    Route::post('admin/password_update', [AdminController::class, 'password_update'])->name('password_update');
 });
 
 
 
 Route::middleware(['auth', 'isAgent'])->group(function () {
     Route::get('agent/dashboard', [AgentController::class, 'agent_dashboard'])->name('agent_dashboard');
+
+
+    // profile and password
+    Route::get('agent/profile_setting', [AgentController::class, 'profile_setting'])->name('agent_profile_setting');
+
+
+    Route::post('agent/profile_update', [AgentController::class, 'profile_update'])->name('agent_profile_update');
+
+
+    Route::post('agent/password_update', [AgentController::class, 'password_update'])->name('agent_password_update');
+
+
+
+    Route::get('agent/add_property', [AgentController::class, 'add_property'])->name('agent_add_property');
+
+    Route::post('agent/store_property', [AgentController::class, 'store_property'])->name('agent_store_property');
+
+    Route::get('agent/property_list', [AgentController::class, 'property_list'])->name('agent_property_list');
+
+    Route::get('agent/delete_property/{id}', [AgentController::class, 'delete_property'])->name('agent_delete_property');
+
+    Route::get('agent/edit_property/{id}', [AgentController::class, 'edit_property'])->name('agent_edit_property');
+
+    Route::post('agent/update_property/{id}', [AgentController::class, 'update_property'])->name('agent_update_property');
+
+    Route::get('agent/property_details/{id}', [AgentController::class, 'view_property'])->name('agent_view_property');
 });

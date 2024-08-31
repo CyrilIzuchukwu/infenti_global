@@ -120,12 +120,12 @@
 
         <p>Congratulations on your successful appointment as a <b>Real Estate Agent</b> at Ifenti Global Service! We are excited to have you join our team to help clients find their perfect properties.</p>
 
+        <p>Dear <b>{{ $mailData['name'] ?? 'N/A' }}</b>,</p>
         <p>To activate your account and start managing property listings on our platform, please click <a href="">Ifenti Global</a> and log in using the credentials below:</p>
-
         <ul>
-            <li>Username: <b>{{ $mailData['email'] }}</b></li>
-            <li>Password: <b>{{ $mailData['password'] }}</b></li>
-            <li>Role: <b>{{ $mailData['role_as'] }}</b></li>
+            <li>Username: <b>{{ $mailData['email'] ?? 'N/A' }}</b></li>
+            <li>Password: <b>{{ $mailData['password'] ?? 'N/A' }}</b></li>
+            <li>Role: <b>{{ $mailData['role_as'] ?? 'N/A' }}</b></li>
         </ul>
 
         <p>If you have any questions or need assistance, please feel free to contact our support team.</p>

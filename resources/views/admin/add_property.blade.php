@@ -1,8 +1,6 @@
 @extends('layout.admin')
 @section('content')
 
-
-
 <div class="container-fluid">
     <div class="page-titles">
         <ol class="breadcrumb">
@@ -51,7 +49,7 @@
                                 <span class="text-danger">@error('property_status') {{ $message }} @enderror</span>
                             </div>
                             <div class="mb-4 col-lg-4 col-md-6">
-                                <label class="form-label">Property Price</label>
+                                <label class="form-label">Property Price (Naira)</label>
                                 <input type="number" name="price" class="form-control" placeholder="15000000" value="{{ old('price') }}">
                                 <span class="text-danger">@error('price') {{ $message }} @enderror</span>
                             </div>
@@ -63,6 +61,7 @@
                                         <input type="number" name="sqfeets" class="form-control" placeholder="85 sq ft" value="{{ old('sqfeets') }}">
                                         <span class="text-danger">@error('sqfeets') {{ $message }} @enderror</span>
                                     </div>
+
                                     <div class="col-md-9" id="details">
                                         <div class="row">
                                             <div class="mb-4  col-md-4">

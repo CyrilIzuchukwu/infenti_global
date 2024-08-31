@@ -21,7 +21,7 @@
         <div id="navpills-1" class="tab-pane active" role="tabpanel">
             <div class="row">
                 @foreach($properties as $property)
-                <div class="col-xl-3 col-md-6 col-sm-6 col-lg-3 m-b30">
+                <div class=" col-md-6 col-sm-6 col-lg-4 m-b30">
                     <div class="property-card style-1">
                         <div class="dz-media">
                             <ul>
@@ -92,7 +92,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="{{ route('view_property', $property->id) }}" class="btn btn-secondary px-2">View</a>
+                                        <a href="{{ route('view_property', $property->id) }}" class="btn btn-primary px-2">View</a>
                                     </li>
 
                                 </ul>

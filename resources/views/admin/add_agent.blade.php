@@ -23,12 +23,12 @@
                                     @csrf
                                     <div class="mb-4 col-md-12 col-sm-6">
                                         <label class="form-label required"> Name </label>
-                                        <input type="text" name="name" class="form-control" placeholder="Agent Name" required="">
+                                        <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Agent Name" required="">
                                         <span class="text-danger">@error('name') {{ $message }} @enderror</span>
                                     </div>
 
                                     <div class="form-group col-md-6 col-sm-6">
-                                        <label class="form-label required">Email Address </label>
+                                        <label class="form-label required" value="{{ old('email') }}">Email Address </label>
                                         <input type="text" class="form-control" name="email" placeholder="Valid email.." required="">
                                         <span class="text-danger">@error('email') {{ $message }} @enderror</span>
                                     </div>

@@ -1,0 +1,56 @@
+@import "_mixin";
+@import "_navbar";
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+section.hero-section {
+    .nav-bar {
+        @include nav;
+    }
+    .nav-bar-mobile {
+        @include nav-mobile;
+    }
+    .similar {
+        @include similar;
+    }
+}
+section.footer {
+    @include footer;
+}
+
+section.property-page {
+    @include propertyPage;
+}
+
+section.get-in-touch {
+    @include get-in-touch;
+}
+
+section.locate-us {
+    @include locate-us;
+}
+
+section.about {
+    @include about;
+}
+section.mission {
+    @include mission;
+}
+section.vision {
+    @include mission;
+}
+section.prop-details {
+    @include prop-details;
+}
+.scroll-top {
+    @include scroll;
+}

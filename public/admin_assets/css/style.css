@@ -34335,7 +34335,7 @@ svg text {
     padding: 0.3125rem 1.25rem;
 }
 
-.form-control{
+.form-control {
     border-radius: 0.75rem;
     background: #fff;
     border: 0.0625rem solid #e6e6e6;
@@ -34354,6 +34354,7 @@ svg text {
 }
 
 @media only screen and (max-width: 1480px) {
+
     .form-control,
     .form-select {
         height: 2.5rem;
@@ -45646,24 +45647,23 @@ span#counter {
     position: absolute;
     border-radius: 100%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 20px;
+    transform: translateY(-50%);
 }
 
-.donut-chart-sale2 small,
-.donut-chart-sale2 .small {
-    font-size: 1rem;
-    position: absolute;
-    width: 65%;
-    height: 65%;
+.property-card .media .position-relative small {
+    width: 60px;
+    height: 60px;
     box-shadow: 0rem 0rem 0.625rem rgba(0, 0, 0, 0.1);
-    left: 50%;
-    border-radius: 4.75rem;
     display: flex;
     align-items: center;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    border-radius: 50%;
     justify-content: center;
+    font-weight: 600;
+}
+
+.property-card .media .position-relative small i {
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -47155,7 +47155,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-block: 10px;
 }
 
-.property-card.style-1 .dz-content .action .btn{
+.property-card.style-1 .dz-content .action .btn {
     font-size: 10px;
     padding-block: 2px;
 }

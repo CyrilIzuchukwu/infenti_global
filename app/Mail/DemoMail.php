@@ -41,7 +41,7 @@ class DemoMail extends Mailable
     {
         return new Content(
             view: 'MAIL',
-            with: ['mailData' => $this->mailData],
+            with: $this->mailData,
         );
     }
 

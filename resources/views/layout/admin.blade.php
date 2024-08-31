@@ -20,8 +20,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin_assets/images/favicon.png') }}">
-    <!-- Vectormap -->
-    <link href="{{ asset('admin_assets/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
+
+
+
+
+
     <link href="{{ asset('admin_assets/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('admin_assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin_assets/css/style.css') }}" rel="stylesheet">
@@ -38,37 +41,30 @@
     <link rel="stylesheet" href="{{ asset('admin_assets/icons/flaticon-1/font/flaticon-1.css') }}">
     <link rel="stylesheet" href="{{ asset('admin_assets/vendor/perfect-scrollbar/css/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('admin_assets/vendor/metismenu/css/metisMenu.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 
 </head>
 
 <body>
 
-    <!--*******************
-        Preloader start
-    ********************-->
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div class="sk-three-bounce">
             <div class="sk-child sk-bounce1"></div>
             <div class="sk-child sk-bounce2"></div>
             <div class="sk-child sk-bounce3"></div>
         </div>
-    </div> -->
-    <!--*******************
-        Preloader end
-    ********************-->
+    </div>
 
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
+
+    <!-- Main wrapper start -->
     <div id="main-wrapper">
 
-        <!--**********************************
-            Nav header start
-        ***********************************-->
+
+        <!-- Nav header start -->
         <div class="nav-header">
             <a href="index.html" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('admin_assets/images/logo.png') }}" alt="/">
-                <img class="logo-compact" src="{{ asset('admin_assets/images/logo-text.png') }}" alt="/">
+                <!-- <h6 class="logo-compact">Ifeneti</h6> -->
                 <img class="brand-title" src="{{ asset('admin_assets/images/logo-text.png') }}" alt="/">
             </a>
 
@@ -78,90 +74,42 @@
                 </div>
             </div>
         </div>
-        <!--**********************************
-            Nav header end
-        ***********************************-->
+        <!-- Nav header end  -->
 
 
-
-        <!--**********************************
-            Header start
-        ***********************************-->
         @include('snippets.admin_header')
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
 
 
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
+
         @include('snippets.admin_sidebar')
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
+
         <div class="content-body">
             @yield('content')
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-
-        <!--**********************************
-            Footer start
-        ***********************************-->
 
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="" target="_blank">Kodex Africa</a> 2023</p>
+                <p>Copyright © <a href="" target="_blank">Infeneti Global</a> 2024</p>
             </div>
         </div>
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
-
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+    <!--Main wrapper ends-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
+
     <script src="{{ asset('admin_assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('admin_assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('admin_assets/vendor/chartjs/chart.bundle.min.js') }}"></script>
     <script src="{{ asset('admin_assets/vendor/owl-carousel/owl.carousel.js') }}"></script>
 
-    <!-- Apex Chart -->
-    <!-- <script src="{{ asset('admin_assets/vendor/apexchart/apexchart.js') }}"></script> -->
-    <!-- Vectormap -->
-    <script src="{{ asset('admin_assets/vendor/jqvmap/js/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('admin_assets/vendor/jqvmap/js/jquery.vmap.world.js') }}"></script>
-    <script src="{{ asset('admin_assets/vendor/jqvmap/js/jquery.vmap.usa.js') }}"></script>
-
-    <!-- Chart piety plugin files -->
-    <script src="{{ asset('admin_assets/vendor/peity/jquery.peity.min.js') }}"></script>
 
 
     <script src="{{ asset('admin_assets/js/dashboard/dashboard-1.js') }}"></script>
     <script src="{{ asset('admin_assets/js/custom.min.js') }}"></script>
     <script src="{{ asset('admin_assets/js/deznav-init.js') }}"></script>
     <!-- Dashboard 1 -->
+
+
 
     <script>
         function carouselReview() {
@@ -205,6 +153,45 @@
             setTimeout(function() {
                 carouselReview();
             }, 1000);
+        });
+    </script>
+
+
+
+    <!-- Summernote CSS -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> -->
+
+    <!-- Summernote JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script> -->
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                placeholder: 'Property Description',
+                height: 200,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                callbacks: {
+                    onPaste: function(e) {
+                        var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                        e.preventDefault();
+                        document.execCommand('insertText', false, bufferText);
+                    }
+                },
+                styleTags: ['p', 'blockquote', 'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ol', 'ul']
+            });
         });
     </script>
 

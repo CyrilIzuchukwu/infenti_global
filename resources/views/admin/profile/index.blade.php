@@ -18,16 +18,16 @@
                     </div>
                     <div class="profile-info">
                         <div class="profile-photo">
-                            <img src="{{ asset('admin_assets/images/profile/profile.png') }}" class="img-fluid rounded-circle" alt="/">
+                            <img src="{{ asset('admin_assets/images/profile/profile.jpg') }}" class="img-fluid rounded-circle" alt="/">
                         </div>
                         <div class="profile-details">
                             <div class="profile-name px-3 pt-2">
                                 <h4 class="text-muted mb-0">Name</h4>
-                                <p>Alex Cyril</p>
+                                <p>{{ Auth::user()->name }}</p>
                             </div>
                             <div class="profile-email px-2 pt-2">
                                 <h4 class="text-muted mb-0">Email</h4>
-                                <p>info@example.com</p>
+                                <p>{{ Auth::user()->email }}</p>
                             </div>
                         </div>
                     </div>
@@ -42,60 +42,38 @@
                     <div class="profile-tab">
                         <div class="custom-tab-1">
                             <div class="tab-content">
-                                <div>
-                                    <div class="profile-personal-info">
-                                        <h4 class="text-primary mb-4">Personal Information</h4>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h6 class="f-w-500">Name <span class="pull-end">:</span>
-                                                </h6>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>Mitchell C.Shay</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h6 class="f-w-500">Email <span class="pull-end">:</span>
-                                                </h6>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>example@examplel.com</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h6 class="f-w-500">Availability <span class="pull-end">:</span></h6>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>Full Time (Free Lancer)</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h6 class="f-w-500">Age <span class="pull-end">:</span>
-                                                </h6>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>27</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h6 class="f-w-500">Location <span class="pull-end">:</span></h6>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>Rosemont Avenue Melbourne,
-                                                    Florida</span>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-sm-3 col-5">
-                                                <h6 class="f-w-500">Year Experience <span class="pull-end">:</span></h6>
-                                            </div>
-                                            <div class="col-sm-9 col-7"><span>07 Year Experiences</span>
-                                            </div>
+                                <div id="profile-settings" class="tab-pane fade active show" role="tabpanel">
+                                    <div class="pt-3">
+                                        <div class="settings-form">
+                                            <h4 class="text-primary">Update Password</h4>
+                                            <form action="{{ route('password_update') }}" method="POST">
+                                                @csrf
+                                                <div class="row">
+                                                    <div class="mb-3 col-md-12">
+                                                        <label class="form-label">Current Password</label>
+                                                        <input type="password" name="old_password" placeholder="Password" class="form-control" required>
+                                                        <span class="text-danger">@error('old_password') {{ $message }} @enderror</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">New Password</label>
+                                                        <input type="password" name="new_password" placeholder="Password" class="form-control" required>
+                                                        <span class="text-danger">@error('new_password') {{ $message }} @enderror</span>
+                                                    </div>
+                                                    <div class="mb-3 col-md-6">
+                                                        <label class="form-label">Confirm New Password</label>
+                                                        <input type="password" name="new_password_confirmation" placeholder="Password" class="form-control" required>
+                                                        <span class="text-danger">@error('new_password_confirmation') {{ $message }} @enderror</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary" type="submit">Update</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -111,33 +89,30 @@
                                     <div class="pt-3">
                                         <div class="settings-form">
                                             <h4 class="text-primary">Account Setting</h4>
-                                            <form>
+                                            <form action="{{ route('profile_update') }}" method="POST">
+                                                @csrf
                                                 <div class="row">
-                                                    <div class="mb-3 col-md-6">
+                                                    <div class="mb-3 col-md-12">
+                                                        <label class="form-label">Name</label>
+                                                        <input type="text" name="name" placeholder="Name" class="form-control" value="{{ Auth::user()->name }}" required>
+                                                    </div>
+                                                    <div class="mb-3 col-md-12">
                                                         <label class="form-label">Email</label>
-                                                        <input type="email" placeholder="Email" class="form-control">
-                                                    </div>
-                                                    <div class="mb-3 col-md-6">
-                                                        <label class="form-label">Password</label>
-                                                        <input type="password" placeholder="Password" class="form-control">
+                                                        <input type="email" name="email" placeholder="Email" class="form-control" value="{{ Auth::user()->email }}" required>
                                                     </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Address</label>
-                                                    <input type="text" placeholder="1234 Main St" class="form-control">
-                                                </div>
-                                                <button class="btn btn-primary" type="submit">Submit</button>
+                                                <button class="btn btn-primary" type="submit">Update</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
