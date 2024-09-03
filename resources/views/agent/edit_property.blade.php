@@ -3,6 +3,7 @@
 
 
 
+
 <div class="container-fluid">
     <div class="page-titles">
         <ol class="breadcrumb">
@@ -18,7 +19,7 @@
                     <h4 class="card-title">Edit Property</h4>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('agent_update_property', $data->id) }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('update_property', $data->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
 
@@ -170,50 +171,35 @@
 
 
 
-                            <label class="form-label">Featured Images Image</label>
-                            @php
-                            $related_images = json_decode($data->related_images) ?? [];
-                            @endphp
-                            <div class="col-md-3 mb-4">
-                                <div class="property-upload property-upload-related">
-                                    <input type="file" name="related_images[]" id="relatedImageInput1" accept="image/*">
-                                    <label for="relatedImageInput1" class="camera-icon">
-                                        <img id="relatedImagePreview1" class="property-image" src="{{ asset('related_images/' . ($related_images[0] ?? 'admin_assets/images/fade.png')) }}">
-                                        <i class="flaticon-381-file-2 property-icon"></i>
-                                    </label>
+                            <!-- Display existing images with preview -->
+                            <label class="form-label">Featured Images (Click to upload any other related image of the property)</label>
+                            <div class="row" id="relatedImagesContainer">
+                                @php
+                                $related_images = json_decode($data->related_images) ?? [];
+                                @endphp
+
+                                @foreach ($related_images as $index => $image)
+                                <div class="col-md-3 mb-4" id="imageUpload{{ $index }}">
+                                    <div class="property-upload property-upload-related">
+                                        <input type="file" name="related_images[]" id="relatedImageInput{{ $index + 1 }}" accept="image/*" onchange="previewImage(this, {{ $index + 1 }})">
+                                        <label for="relatedImageInput{{ $index + 1 }}" class="camera-icon">
+                                            <img id="relatedImagePreview{{ $index + 1 }}" class="property-image" src="{{ asset('related_images/' . $image) }}" alt="Upload Image">
+                                            <i class="flaticon-381-file-2 property-icon"></i>
+                                        </label>
+                                        <!-- <button type="button" class="btn removebtn btn-danger btn-sm mt-2" onclick="removeImage({{ $index + 1 }})">X</button> -->
+                                    </div>
+                                    <span class="text-danger">@error('related_images.' . $index) {{ $message }} @enderror</span>
+                                    <span class="text-danger" id="errorMessage{{ $index + 1 }}"></span>
                                 </div>
-                                <span class="text-danger">@error('related_images.0') {{ $message }} @enderror</span>
+                                @endforeach
                             </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="property-upload property-upload-related">
-                                    <input type="file" name="related_images[]" id="relatedImageInput2" accept="image/*">
-                                    <label for="relatedImageInput2" class="camera-icon">
-                                        <img id="relatedImagePreview2" class="property-image" src="{{ asset('related_images/' . ($related_images[1] ?? 'admin_assets/images/fade.png')) }}" alt="Upload Image">
-                                        <i class="flaticon-381-file-2 property-icon"></i>
-                                    </label>
-                                </div>
-                                <span class="text-danger">@error('related_images.1') {{ $message }} @enderror</span>
+
+                            <!-- Button to add more images -->
+                            <div class="add-more">
+                                <button type="button" class="btn btn-primary add-more" onclick="addMore()"><i class="ri-add-line"></i> Add More Images</button>
                             </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="property-upload property-upload-related">
-                                    <input type="file" name="related_images[]" id="relatedImageInput3" accept="image/*">
-                                    <label for="relatedImageInput3" class="camera-icon">
-                                        <img id="relatedImagePreview3" class="property-image" src="{{ asset('related_images/' . ($related_images[2] ?? 'admin_assets/images/fade.png')) }}" alt="Upload Image">
-                                        <i class="flaticon-381-file-2 property-icon"></i>
-                                    </label>
-                                </div>
-                                <span class="text-danger">@error('related_images.2') {{ $message }} @enderror</span>
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="property-upload property-upload-related">
-                                    <input type="file" name="related_images[]" id="relatedImageInput4" accept="image/*">
-                                    <label for="relatedImageInput4" class="camera-icon">
-                                        <img id="relatedImagePreview4" class="property-image" src="{{ asset('related_images/' . ($related_images[3] ?? 'admin_assets/images/fade.png')) }}" alt="Upload Image">
-                                        <i class="flaticon-381-file-2 property-icon"></i>
-                                    </label>
-                                </div>
-                                <span class="text-danger">@error('related_images.3') {{ $message }} @enderror</span>
-                            </div>
+
+
 
 
 
@@ -284,35 +270,128 @@
         justify-content: center;
         align-items: center;
     }
+
+    .property-upload .removebtn {
+        position: absolute;
+        right: 0;
+        top: -10px;
+    }
 </style>
 
+<style>
+    .add-more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .add-more i {
+        font-size: 16px;
+        margin-right: 8px;
+    }
+</style>
+
+
+
+
 <script>
-    document.getElementById('propertyImageInput').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('propertyImagePreview').src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-    });
+    let imageIndex = {{ count($related_images) }};
+    let initialImageCount = imageIndex;
+    const maxImages = 10; // Maximum number of images allowed
 
+    // Function to add more images
+    function addMore() {
+        // Only check inputs that were dynamically added
+        if (imageIndex > initialImageCount) {
+            const lastImageInput = document.querySelector(`#relatedImageInput${imageIndex}`);
+            const lastErrorMessage = document.querySelector(`#errorMessage${imageIndex}`);
 
-    document.addEventListener('change', function(event) {
-        if (event.target && event.target.matches('input[type="file"]')) {
-            const inputId = event.target.id;
-            const previewId = 'relatedImagePreview' + inputId.slice(-1);
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById(previewId).src = e.target.result;
-                };
-                reader.readAsDataURL(file);
+            if (lastImageInput && !lastImageInput.value) {
+                lastErrorMessage.innerText = 'Please provide an image for the current one before adding more.';
+                return;
+            } else {
+                lastErrorMessage.innerText = '';
             }
         }
-    });
+
+        // Check if the maximum number of images is reached
+        if (imageIndex >= maxImages) {
+            swal("Error!", "You cannot add more than 10 images.", "error");
+            return;
+        }
+
+        imageIndex++;
+        const container = document.getElementById('relatedImagesContainer');
+        const newImageUpload = `
+            <div class="col-md-3 mb-4" id="imageUpload${imageIndex}">
+                <div class="property-upload property-upload-related">
+                    <input type="file" name="related_images[]" id="relatedImageInput${imageIndex}" accept="image/*" onchange="previewImage(this, ${imageIndex})">
+                    <label for="relatedImageInput${imageIndex}" class="camera-icon">
+                        <img id="relatedImagePreview${imageIndex}" class="property-image" src="{{ asset('admin_assets/images/fade.png') }}" alt="Upload Image">
+                        <i class="flaticon-381-file-2 property-icon"></i>
+                    </label>
+                </div>
+                <span class="text-danger" id="errorMessage${imageIndex}"></span>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', newImageUpload);
+
+        // Automatically open the file dialog for the new input
+        document.getElementById(`relatedImageInput${imageIndex}`).click();
+    }
+
+    // Function to preview images
+    function previewImage(input, index) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById(`relatedImagePreview${index}`).src = e.target.result;
+            document.getElementById(`errorMessage${index}`).innerText = ''; // Clear the error message
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+
+    // Function to remove image
+    function removeImage(index) {
+        const imageCol = document.getElementById(`imageUpload${index}`);
+        if (imageCol) {
+            imageCol.remove();
+        }
+    }
+</script>
+
+
+<script>
+    // document.getElementById('propertyImageInput').addEventListener('change', function(event) {
+    //     const file = event.target.files[0];
+    //     if (file) {
+    //         const reader = new FileReader();
+    //         reader.onload = function(e) {
+    //             document.getElementById('propertyImagePreview').src = e.target.result;
+    //         };
+    //         reader.readAsDataURL(file);
+    //     }
+    // });
+
+
+    // document.addEventListener('change', function(event) {
+    //     if (event.target && event.target.matches('input[type="file"]')) {
+    //         const inputId = event.target.id;
+    //         const previewId = 'relatedImagePreview' + inputId.slice(-1);
+    //         const file = event.target.files[0];
+    //         if (file) {
+    //             const reader = new FileReader();
+    //             reader.onload = function(e) {
+    //                 document.getElementById(previewId).src = e.target.result;
+    //             };
+    //             reader.readAsDataURL(file);
+    //         }
+    //     }
+    // });
 
     // document.addEventListener('DOMContentLoaded', function() {
     //     var propertyTypeSelect = document.getElementById('propertyTypeSelect');

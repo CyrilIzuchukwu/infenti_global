@@ -60,7 +60,7 @@
 
                             <div class="mb-4 col-md-12">
                                 <label class="form-label">Content</label>
-                                <textarea id="summernote" class="form-control" name="testimonial" rows="3">{{ old('description') }}</textarea>
+                                <textarea placeholder="Content" class="form-control" name="testimonial" rows="4">{{ old('testimonial') }}</textarea>
                                 <span class="text-danger">@error('testimonial') {{ $message }} @enderror</span>
                             </div>
                             <div class="col-sm-12 pt-3">

@@ -76,7 +76,8 @@ class AdminController extends Controller
         // Mail::to($mailData['email'])->send(new DemoMail($mailData));
         // Mail::to('alexcyril@gmail.com')->send(new DemoMail($mailData));
 
-        return redirect()->back()->with('message', 'DONE');
+        // return redirect()->back()->with('success', 'DONE');
+        return redirect()->route('all_agents')->with('success', 'DONE');
     }
 
     public function all_agents()
@@ -185,10 +186,7 @@ class AdminController extends Controller
                 'property_type' => 'required',
                 'property_status' => 'required',
                 'price' => 'required|numeric',
-                // 'beds' => 'required',
-                // 'baths' => 'required',
                 'sqfeets' => 'required',
-                // 'year_built' => 'required',
                 'description' => 'required',
                 'address' => 'required',
                 'city' => 'required',

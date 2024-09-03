@@ -62,7 +62,7 @@
 
         <!-- Nav header start -->
         <div class="nav-header">
-            <a href="index.html" class="brand-logo">
+            <a href="/" class="brand-logo">
                 <img class="logo-abbr" src="{{ asset('admin_assets/images/logo.png') }}" alt="/">
                 <!-- <h6 class="logo-compact">Ifeneti</h6> -->
                 <img class="brand-title" src="{{ asset('admin_assets/images/logo-text.png') }}" alt="/">
@@ -216,7 +216,7 @@
 
     @if (Session::has('error'))
     <script>
-        swal("Error!", "{{ Session::get('error') }}!", "warning");
+        swal("Warning!", "{{ Session::get('error') }}!", "warning");
     </script>
     @endif
 

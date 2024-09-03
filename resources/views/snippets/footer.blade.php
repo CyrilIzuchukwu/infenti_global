@@ -28,13 +28,14 @@
             </div>
             <div>
                 <h5>Contact Us</h5>
-                <p>ifenetiglobal@gmail.com</p>
+                <p> ifeneti4422@gmail.com</p>
                 <p>+234 8036 645 193</p>
                 <p> +234 8188 669 563</p>
             </div>
             <div>
                 <h5>Our Address</h5>
-                <p>Kenkolly’s Plaza No.9 Club Road, Formally Abakaliki Street Awka, Anambra State, Nigeria.</p>
+                <p>Kenkolly’s Plaza, No.9 Club Road, Formerly Abakaliki Street, Awka, Anambra
+                    State, Nigeria</p>
             </div>
         </div>
     </aside>

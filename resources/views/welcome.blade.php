@@ -34,12 +34,13 @@
             <div class="hero">
 
                 <main class="hero-text-main" data-sal="slide-right" data-sal-duration="1000">
-                    <h1>Your <span>Property</span> , Our Priority.</h1>
-                    <p>The <span> #1 </span> site property dealers trust* <br> Let’s Find your <span>Dream
-                            Property</span> </p>
+                    <h1>Welcome to <span>Ifeneti</span> Global Service</h1>
+
+                    <p>The <span> Ifenti </span> Global Service, we are dedicated to providing you with a seamless and professional experience in property management and real estate services. <span> Explore </span>our extensive listings. </p>
 
 
-                    <a href="/properties">Explore <i class="ph ph-arrow-right"></i></a>
+
+                    <a href="/properties" style="cursor: pointer; position: relative; z-index: 999999999999 !important;">Explore <i class="ph ph-arrow-right"></i></a>
                 </main>
                 <div class="swiper" data-sal="slide-left" data-sal-duration="1000">
                     <!-- Additional required wrapper -->
@@ -116,21 +117,24 @@
                         <img src="{{ asset('assets/img/land2.svg') }}" alt="">
                     </div>
                     <h4>Land</h4>
-                    <p>Lorem ipsum adipisicing elit. Molestias, commodi.</p>
+                    <p> Discover a wide range of lands available in prime locations. Whether for residential or
+                        commercial purposes, find the perfect plot to build your future.</p>
                 </div>
                 <div class="card" data-sal="slide-down" data-sal-duration="1000">
                     <div class="card-img">
                         <img src="{{ asset('assets/img/homeicon.svg') }}" alt="">
                     </div>
                     <h4>Homes</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, commodi.</p>
+                    <p>Browse through our extensive listings of homes, from luxury apartments to cozy
+                        family houses, we have something for everyone..</p>
                 </div>
                 <div class="card" data-sal="slide-up" data-sal-duration="1000">
                     <div class="card-img">
                         <img src="{{ asset('assets/img/buildingicon.svg') }}" alt="">
                     </div>
                     <h4>Building</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, commodi.</p>
+                    <p>Find the ideal commercial space for your business. Our listings include
+                        office buildings, retail spaces, and more in key business districts.</p>
                 </div>
             </div>
         </section>
@@ -216,14 +220,14 @@
                     <hr class="left"> <i class="ri-arrow-left-s-fill"></i> About Us <i class="ri-arrow-right-s-fill"></i>
                     <hr class="right">
                 </h1>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor
-                    vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia
-                    tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum
-                    amet diam pretium imperdiet elit sit.</p>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor
-                    vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia
-                    tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum
-                    amet diam pretium imperdiet elit sit.Lorem ipsum dolor sit amet consectetur. </p>
+                <p>Ifenti Global Service is a leading property solutions provider located in Anambra State,
+                    Nigeria. With a commitment to excellence, we specialise in offering a wide range of real
+                    estate services including property management, sales, leasing, and consulting. Our team of
+                    dedicated professionals works tirelessly to ensure that every client finds the perfect property
+                    to meet their needs.</p>
+                <p>At Ifenti Global Service, we believe that property ownership should be accessible,
+                    transparent, and hassle-free. We strive to build lasting relationships with our clients by
+                    providing personalised services tailored to individual requirements. </p>
 
                 <a href="/about">Know More</a>
             </main>
@@ -243,7 +247,7 @@
                     <div class="operate-text">
                         <h6 class="number">01</h6>
                         <p class="main-text">Discover your Dream property</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ullam!</p>
+                        <p>Explore our comprehensive listings to find properties that match your needs.</p>
                     </div>
                 </div>
                 {{-- <hr> --}}
@@ -254,7 +258,7 @@
                     <div class="operate-text">
                         <h6 class="number">02</h6>
                         <p class="main-text">Contact Our Team</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ullam!</p>
+                        <p>Reach out to us for personalized advice and support.</p>
                     </div>
                 </div>
                 {{-- <hr> --}}
@@ -265,7 +269,7 @@
                     <div class="operate-text">
                         <h6 class="number">03</h6>
                         <p class="main-text">Schedule a Meeting</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ullam!</p>
+                        <p>Book a meeting with our experts to discuss your property needs in detail.</p>
                     </div>
                 </div>
 
@@ -276,7 +280,7 @@
                     <div class="operate-text">
                         <h6 class="number">04</h6>
                         <p class="main-text">Visit the Property</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ullam!</p>
+                        <p>Take a guided tour of the properties you're interested in for inspection.</p>
                     </div>
                 </div>
                 {{-- <hr> --}}
@@ -287,7 +291,7 @@
                     <div class="operate-text">
                         <h6 class="number">05</h6>
                         <p class="main-text">Seal the Deal</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ullam!</p>
+                        <p>We assist you through every step of the transaction to ensure a smooth process.</p>
                     </div>
                 </div>
             </div>
@@ -296,9 +300,10 @@
             <main data-sal="slide-left" data-sal-duration="1000">
                 <h1>TESTIMONIALS</h1>
                 <p class="look">Look What Our Customers Say!</p>
-                <p>Fusce venenatis tellcelerisque, non pulvinar est pellentesqueus a felis scelerisque, non pulvinar est
-                    pellentesque. Fusce venenatis tellus a felis us a felis scelerisque, non pulvinar est pellentesque.
-                    Fusce venenatis .</p>
+                <p>At Ifeneti Global Service, we strive to make finding the perfect property a seamless experience. With years of expertise and a commitment to personalized service, we have earned a reputation for reliability and professionalism.</p>
+                <br>
+
+                <p>But don’t just take our word for it—our clients have experienced the difference firsthand. Here’s what some of our satisfied customers have to say about their experience with Ifeneti Global Service:</p>
 
                 <div class="test-arrow">
                     <i class="ri-arrow-left-line swiper-button-prev2"></i>
@@ -396,13 +401,17 @@
         <section class="faq">
             <div class="faq-test">
                 <h2>Frequently Asked Questions</h2>
-                <p class="faqp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias porro assumenda
-                    aspernatur magnam delectus enim vero et ut minus, repellendus temporibus sunt fugit, consectetur
-                    eaque
-                    corporis. Excepturi dolor quod deserunt dicta magnam. Eum repudiandae numquam accusamus debitis
-                    ratione
-                    fugiat quia tempora at saepe placeat. Sunt impedit dignissimos laboriosam sapiente quis!
+                <p class="faqp">At Ifeneti Global Service, we know that buying, selling, or investing in property can bring many questions. We believe that well-informed clients make the best decisions, and we're here to guide you every step of the way.
                 </p>
+
+                <p class="faqp"> Whether you're a first-time buyer, a seasoned investor, or simply curious about our services, our FAQ section is here to help. We've compiled answers to the most common questions we receive, covering everything from property transactions to the unique services we offer.</p>
+
+                <p class="faqp">
+                    If you have a question that isn't addressed here, don't hesitate to reach out—our team is always ready to assist you.
+                </p>
+
+
+
             </div>
             <div class="faqContainer">
                 @foreach($frontEndFaqs as $fqs)

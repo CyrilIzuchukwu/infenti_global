@@ -57,7 +57,7 @@ class TestimonialController extends Controller
 
     public function testimonials()
     {
-        $testimonials = Testimonial::orderBy('created_at', 'desc')->paginate(2);
+        $testimonials = Testimonial::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.testimonial.testimonials', compact('testimonials'));
     }
 
