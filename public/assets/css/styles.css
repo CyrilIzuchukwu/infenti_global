@@ -118,7 +118,7 @@ section.hero-section .hero main {
   width: 55%;
   padding-top: 2rem;
   padding-left: 3rem;
-  z-index: 2;
+  z-index: 222;
 }
 @media screen and (max-width: 767px) {
   section.hero-section .hero main {
@@ -138,7 +138,7 @@ section.hero-section .hero main span {
   color: rgb(37, 78, 240);
 }
 section.hero-section .hero main h1 {
-  font-size: 45px;
+  font-size: 35px;
   padding-bottom: 1.1rem;
 }
 @media screen and (max-width: 767px) {
@@ -153,7 +153,7 @@ section.hero-section .hero main h1 {
   }
 }
 section.hero-section .hero main p {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.5;
   padding-bottom: 2.5rem;
 }

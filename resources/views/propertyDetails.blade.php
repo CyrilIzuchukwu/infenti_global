@@ -38,6 +38,7 @@
 
 
         </section>
+
         <section class="prop-details">
             <div class="prop-details-top">
 
@@ -65,23 +66,25 @@
                 </div>
             </div>
             <div class="prop-details-bottom">
-                <div class="prop-details-layout">
-                    <div class="prop-details-img spanned">
-                        <img src="{{ asset('property_images/' . $data->property_image) }}" alt="">
-                    </div>
 
+                <div class="swiper-container">
 
-                    @if(!empty($data->related_images))
-                    <div class="prop-details-img ">
-                        @foreach($data->related_images as $image)
-                        <div class="img-wrapperm">
-                            <img src="{{ asset('related_images/' . $image) }}" alt="">
+                    <div class="swiper swiper-prop " data-sal="slide-left" data-sal-duration="1000">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @if(!empty($data->related_images))
+                            @foreach($data->related_images as $image)
+                            <div class="swiper-slide"> <img src="{{ asset('related_images/' . $image) }}" alt=""> </div>
+                            @endforeach
+                            @endif
                         </div>
-                        @endforeach
-                    </div>
+                        <div class="swiper-pagination"></div>
 
-                    @endif
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
+
 
 
                 <div class="prop-description">
@@ -130,12 +133,43 @@
             </div>
             @else
             @endif
-
         </section>
+
         @include('snippets.footer')
     </main>
+
+    <script>
+        const swiperProp = new Swiper('.swiper-prop', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+            // Autoplay settings
+            autoplay: {
+                delay: 3000, // Delay between slides in milliseconds
+
+            },
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+    </script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
     <script src="https://unpkg.com/sal.js@0.8.2/dist/sal.js"></script>
+
+
 </body>
 
 </html>

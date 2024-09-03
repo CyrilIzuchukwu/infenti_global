@@ -41,8 +41,15 @@
                     <hr class="left"> <i class="ri-arrow-left-s-fill"></i> About Us <i class="ri-arrow-right-s-fill"></i>
                     <hr class="right">
                 </h1>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum amet diam pretium imperdiet elit sit.</p>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum amet diam pretium imperdiet elit sit.Lorem ipsum dolor sit amet consectetur. </p>
+                <p>Ifenti Global Service is a leading property solutions provider located in Anambra State,
+                    Nigeria. With a commitment to excellence, we specialise in offering a wide range of real
+                    estate services including property management, sales, leasing, and consulting. Our team of
+                    dedicated professionals works tirelessly to ensure that every client finds the perfect property
+                    to meet their needs.</p>
+
+                <p>At Ifenti Global Service, we believe that property ownership should be accessible,
+                    transparent, and hassle-free. We strive to build lasting relationships with our clients by
+                    providing personalised services tailored to individual requirements. </p>
 
             </main>
             <aside>
@@ -59,8 +66,18 @@
                     <hr class="left"> <i class="ri-arrow-left-s-fill"></i> Our Mission <i class="ri-arrow-right-s-fill"></i>
                     <hr class="right">
                 </h1>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum amet diam pretium imperdiet elit sit.</p>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum amet diam pretium imperdiet elit sit.Lorem ipsum dolor sit amet consectetur. </p>
+                <p>Our mission is to provide top-notch real estate services that cater to the diverse needs of our
+                    clients. We are committed to:</p>
+            
+                <p>Delivering high-quality property solutions that meet the highest standards of
+                    excellence.</p>
+                <p>Offering personalised and professional services that are responsive to our clients’
+                    unique needs.</p>
+
+
+                <p>Building a strong and trusted brand that stands for integrity, transparency, and
+                    customer satisfaction.</p>
+                </p>
             </div>
         </section>
         <section class="vision">
@@ -70,8 +87,11 @@
                     <hr class="left"> <i class="ri-arrow-left-s-fill"></i> Our Vision <i class="ri-arrow-right-s-fill"></i>
                     <hr class="right">
                 </h1>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum amet diam pretium imperdiet elit sit.</p>
-                <p>Lorem ipsum dolor sit amet consectetur. Amet risus rhoncus sodales vulputate arcu. Erat mi dolor vitae in. Consequat pellentesque sed vitae purus erat id in pretium. Sed cras fringilla lacinia tortor diam pretium. Ipsum amet faucibus tortor vulputate elementum tortor et dis pharetra. Rutrum amet diam pretium imperdiet elit sit.Lorem ipsum dolor sit amet consectetur. </p>
+                <p>Our vision is to be the most trusted and reliable real estate company in Nigeria. We aim to
+                    set new standards in the property industry by delivering exceptional service, innovative
+                    solutions, and unparalleled customer satisfaction..</p>
+                <p>We are dedicated to creating a seamless property experience that empowers our clients to
+                    make informed decisions and achieve their real estate goals with confidence. </p>
             </div>
             <div class="mission-img">
                 <img src="{{ asset('assets/img/bro.svg') }}" alt="">

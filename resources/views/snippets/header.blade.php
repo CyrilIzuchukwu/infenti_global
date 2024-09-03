@@ -4,7 +4,7 @@
             <a href="tel:+234 8036 645 193"><i class="ph ph-phone-call"></i> +234 8036 645 193</a>
             <a href="tel:+234 8188 669 563"><i class="ph ph-phone-call"></i> 234 8188 669 563</a>
             <a href="mailto:ifentiglobal@gmail.com"><i class="ph ph-envelope-simple"></i>
-                ifentiglobal@gmail.com</a>
+                Ifeneti4422@gmail.com</a>
 
         </div>
         <div class="nav-bottom">
@@ -54,7 +54,7 @@
                     <a href="tel:+234 8036 645 193"><i class="ph ph-phone-call"></i> +234 8036 645 193</a>
                     <a href="tel:+234 8188 669 563"><i class="ph ph-phone-call"></i> 234 8188 669 563</a>
                     <a href="mailto:ifentiglobal@gmail.com"><i class="ph ph-envelope-simple"></i>
-                        ifentiglobal@gmail.com</a>
+                        Ifeneti4422@gmail.com</a>
 
                 </div>
             </div>

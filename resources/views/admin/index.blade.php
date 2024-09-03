@@ -156,7 +156,7 @@
                                                 {{ number_format($property->price) }}
                                             </a>
 
-                                            <p class="fs-14 mt-3 mb-0">{{ $property->description }}</p>
+                                            <p class="fs-14 mt-3 mb-0">{!! $property->description !!}</p>
                                         </div>
                                         @endforeach
                                     </div>

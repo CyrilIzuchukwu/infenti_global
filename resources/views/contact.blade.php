@@ -67,11 +67,11 @@
                         <textarea name="message" id="message" placeholder="Message">{{ old('message') }}</textarea>
                         <span style="font-size: 12px; color: red;">@error('message'){{ $message }} @enderror </span>
                     </div>
-                    <div class="agree">
+                    <!-- <div class="agree">
                         <input type="checkbox" name="check" id="check">
                         <label for="check">You agree to our friendly privacy policy.</label>
                         <div class="error-message" id="checkError"></div>
-                    </div>
+                    </div> -->
                     <button style="cursor: pointer;" type="submit">Send Message</button>
                 </form>
             </main>
@@ -83,7 +83,7 @@
         <section class="locate-us">
             <div class="locate-text">
                 <h4 class="locate">Locate us At <i class="ri-direction-fill"></i></h4>
-                <h6>Ifenti <span>Global</span> Services LTD</h6>
+                <h6>Ifeneti <span>Global</span> Services LTD</h6>
                 <p>Kenkolly’s Plaza No.9 Club Road, Formally Abakaliki Street Awka, Anambra State, Nigeria.</p>
             </div>
             <div class="locate-map">
@@ -124,7 +124,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert@11.1.10/dist/sweetalert.min.js"></script>
     <script>
-        
+
         $(document).ready(function() {
             $('#contactForm').on('submit', function(e) {
                 e.preventDefault();
