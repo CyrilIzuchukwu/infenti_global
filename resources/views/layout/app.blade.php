@@ -4,7 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+    <title>Ifeneti Global Services - Leading Property Management System</title>
+    <meta name="description" content="Ifeneti Global Services offers top-notch real estate and property management services. Find properties, manage your real estate investments, and explore rental and buying options.">
+
+    <meta name="keywords" content="real estate, property management, buy, sell, rent, Ifeneti Global Services, houses, apartments, lands, properties">
+    <meta name="author" content="Ifeneti Global Services">
+
+
+    <!-- Open Graph Meta Tags (for Social Media) -->
+    <meta property="og:title" content="Ifeneti Global Services - Real Estate and Property Management">
+    <meta property="og:description" content="Explore, manage, and invest in properties with Ifeneti Global Services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ifenetiglobalservices.com">
+    <meta property="og:image" content="{{ asset('assets/img/logo1.png') }}">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ifeneti Global Services - Real Estate and Property Management">
+    <meta name="twitter:description" content="Discover top real estate services and properties with Ifeneti Global Services.">
+    <meta name="twitter:image" content="{{ asset('assets/img/logo1.png') }}">
+
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.ifenetiglobalservices.com">
+
+
     <link rel="stylesheet" href="https://unpkg.com/sal.js@0.8.2/dist/sal.css">
 
     <!-- AOS -->
@@ -39,7 +67,7 @@
             <i class="ri-arrow-up-line"></i>
         </div>
     </main>
-    
+
 
     <script src="assets/js/script.js"></script>
     <script src="https://unpkg.com/sal.js@0.8.2/dist/sal.js"></script>

@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="mb-4 col-lg-6 col-md-6">
                                 <label class="form-label">Client Name</label>
-                                <input type="text" value="{{ old('client_name', $data->testimonial) }}" name="client_name" class="form-control" placeholder="Client Name">
+                                <input type="text" value="{{ old('client_name', $data->client_name) }}" name="client_name" class="form-control" placeholder="Client Name">
                                 <span class="text-danger">@error ('client_name') {{ $message }} @enderror </span>
                             </div>
 
