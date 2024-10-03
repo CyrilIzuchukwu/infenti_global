@@ -9,7 +9,10 @@
         </div>
         <div class="nav-bottom">
             <div class="nav-logo">
-                <h1>Ifeneti <span>Global</span></h1>
+                <!-- <h1>Ifeneti <span>Global</span></h1> -->
+                <a href="/">
+                    <img src="{{ asset('assets/img/logo1.png') }}" width="130" alt="Logo">
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>

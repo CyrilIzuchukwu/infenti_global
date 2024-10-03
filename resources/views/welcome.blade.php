@@ -36,7 +36,7 @@
                 <main class="hero-text-main" data-sal="slide-right" data-sal-duration="1000">
                     <h1>Welcome to <span>Ifeneti</span> Global Service</h1>
 
-                    <p>The <span> Ifenti </span> Global Service, we are dedicated to providing you with a seamless and professional experience in property management and real estate services. <span> Explore </span>our extensive listings. </p>
+                    <p>The <span> Ifeneti </span> Global Service, we are dedicated to providing you with a seamless and professional experience in property management and real estate services. <span> Explore </span>our extensive listings. </p>
 
 
 
@@ -220,12 +220,12 @@
                     <hr class="left"> <i class="ri-arrow-left-s-fill"></i> About Us <i class="ri-arrow-right-s-fill"></i>
                     <hr class="right">
                 </h1>
-                <p>Ifenti Global Service is a leading property solutions provider located in Anambra State,
+                <p>Ifeneti Global Service is a leading property solutions provider located in Anambra State,
                     Nigeria. With a commitment to excellence, we specialise in offering a wide range of real
                     estate services including property management, sales, leasing, and consulting. Our team of
                     dedicated professionals works tirelessly to ensure that every client finds the perfect property
                     to meet their needs.</p>
-                <p>At Ifenti Global Service, we believe that property ownership should be accessible,
+                <p>At Ifeneti Global Service, we believe that property ownership should be accessible,
                     transparent, and hassle-free. We strive to build lasting relationships with our clients by
                     providing personalised services tailored to individual requirements. </p>
 
